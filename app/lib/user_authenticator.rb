@@ -11,10 +11,10 @@ class UserAuthenticator
             raise AthenticationError
         else
            prepare_user
-            @access_token = if user.access_token.present?
-                user.access_token
-            else
-                user.create_access_token
+           @access_token = if user.access_token.present?
+            user.access_token
+          else
+            user.create_access_token
             end
         end
     end
