@@ -41,8 +41,19 @@ RSpec.describe AccessTokensController, type: :controller do
         allow_any_instance_of(Octokit::Client).to receive(
           :exchange_code_for_token).and_return(github_error)
       end
-    context 'when success request' do
 
+      subject { post :create, params: {code: 'invalid_code'} }
+      
+      it "unauthorized_requests" do
+      end
+
+    context 'when success request' do
+      # subject {post :create, params: {code: 'valid_code'}}
+
+      # it 'should return 201 status code' do
+      #   subject
+      #   expect(response).to have_http_status(:created)
+      # end
     end
   end
 end
